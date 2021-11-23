@@ -1,3 +1,21 @@
+class Client {
+    constructor(username, password, num_client, society, contact, addres, zipcode, city, phone, fax, max_outstanding) {
+        this.username = username;
+        this.password = password;
+        this.num_client = num_client;
+        this.society = society;
+        this.contact = contact;
+        this.addres = addres;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.phone = phone;
+        this.fax = fax;
+        this.max_outstanding = max_outstanding;
+    }
+}
+
+
+
 const loginControl = (request, response) => {
     const clientServices = require('../services/clientServices');
 
@@ -51,11 +69,13 @@ const registerControl = (request, response) => {
         console.log("User from register service :" + insertedID);
         if (exists) {
             console.log("Username taken!");
-            response.send(`registration failed. Username (${username}) already taken!`); //invite to register
+            response.render('postRegister', { message: `registration failed. Username "${username}" already taken!` });
+            // response.send(`registration failed. Username (${username}) already taken!`); //invite to register
         } else {
             client.num_client = insertedID;
             console.log(`Registration (${username}, ${insertedID}) successful!`);
-            response.send(`Successful registration ${client.contact} (ID.${client.num_client})!`);
+            response.render('postRegister', { message: `Successfull registration "${username}"` });
+            // response.send(`Successful registration ${client.contact} (ID.${client.num_client})!`);
         }
         response.end();
     });
