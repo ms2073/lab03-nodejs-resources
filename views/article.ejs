@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+
+    <table>
+        <tr>
+            <td>Product Name:</td>
+            <td><%= product.name %></td>
+        </tr>
+        <tr>
+            <td>Product Supplier:</td>
+            <td><%= product.supplier %></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>AED <%= product.price %></td>
+        </tr>
+        <tr>
+            <td>Product Stock:</td>
+            <td><%= product.stock %></td>
+        </tr>
+    </table>
+
+<%- include('footer'); -%>
