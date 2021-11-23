@@ -33,7 +33,7 @@ const searchCategoryService = function(category, callback) {
         }
         if (rows.length == 0) { //no products
             console.log(`No product in category ${category}!`);
-            calback(null, rows);
+            callback(null, rows);
         } else {
             //return the rows
             callback(null, rows);
